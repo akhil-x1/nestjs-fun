@@ -9,8 +9,9 @@ import AuthMiddleware from '../middlewares/authMiddleware';
   providers: [CatService],
   exports: [CatService], //Exported provider can be imported by some other modules. This prevents creating a separate instance of the service causing increased memory, compute and other resource usage.
 })
-export class CatModule implements NestModule {
-  configure(consumer: MiddlewareConsumer) {
-    consumer.apply(AuthMiddleware).forRoutes(CatController);
-  }
+// export class CatModule implements NestModule {
+export class CatModule {
+  // configure(consumer: MiddlewareConsumer) {
+  //   consumer.apply(AuthMiddleware).forRoutes(CatController);
+  // }
 }
