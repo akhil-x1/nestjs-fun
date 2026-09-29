@@ -2,11 +2,12 @@ import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
-import { CatModule } from './cats/cat.module';
 import LoggerMiddleware from './middlewares/loggerMiddleware';
+import { CatModule } from './cats/cat.module';
+import { BirdModule } from './birds/bird.module';
 
 @Module({
-  imports: [CatModule],
+  imports: [CatModule, BirdModule],
   controllers: [AppController],
   providers: [AppService],
 })
