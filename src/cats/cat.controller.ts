@@ -10,11 +10,15 @@ import {
   Redirect,
   Req,
   Res,
+  UsePipes,
 } from '@nestjs/common';
 import type { Request, Response } from 'express';
 
 import { CatService } from './cat.service';
-import { CreateCatDto } from './dto/create-cat.dto';
+// import { CreateCatDto } from './dto/create-cat.dto';
+import { ZodValidationPipe } from 'src/pipes/ZodValidationPipe';
+import { createCatSchema } from './schema/createCatSchema';
+import type { createNewCatDto } from './schema/createCatSchema';
 
 @Controller('cats')
 export class CatController {
@@ -26,7 +30,9 @@ export class CatController {
   }
 
   @Post()
-  create(@Body() createCatDto: CreateCatDto) {
+  @UsePipes(new ZodValidationPipe(createCatSchema))
+  create(@Body() createCatDto: createNewCatDto) {
+    // create(@Body() createCatDto: CreateCatDto) {
     return 'This action adds a new cat';
   }
 
