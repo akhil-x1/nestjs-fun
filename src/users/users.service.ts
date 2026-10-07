@@ -6,6 +6,11 @@ export type User = {
   password: string;
 };
 
+export type UserWithoutPassword = {
+  userId: number;
+  username: string;
+};
+
 @Injectable()
 export class UsersService {
   private readonly users = [
@@ -21,7 +26,7 @@ export class UsersService {
     },
   ];
 
-  async findOne(username: string) {
+  async findOne(username: string): Promise<User | undefined> {
     return this.users.find((userItem) => userItem.username === username);
   }
 }
