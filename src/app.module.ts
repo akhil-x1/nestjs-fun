@@ -5,9 +5,11 @@ import { AppService } from './app.service';
 import LoggerMiddleware from './middlewares/loggerMiddleware';
 import { CatModule } from './cats/cat.module';
 import { BirdModule } from './birds/bird.module';
+import { AuthModule } from './auth/auth.module';
+import { UsersModule } from './users/users.module';
 
 @Module({
-  imports: [CatModule, BirdModule],
+  imports: [CatModule, BirdModule, AuthModule, UsersModule],
   controllers: [AppController],
   providers: [AppService],
 })
