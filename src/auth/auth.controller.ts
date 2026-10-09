@@ -12,7 +12,6 @@ export class AuthController {
     return this.authService.login(req.user);
   }
 
-  @UseGuards(LocalAuthGuard)
   @Post('auth/logout')
   async logout(@Request() req: any) {
     await new Promise<void>((resolve, reject) => {
