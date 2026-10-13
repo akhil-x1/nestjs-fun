@@ -18,6 +18,12 @@ export class CookiesController {
     return { message: 'Cookie set successfully' };
   }
 
+  @Get('updated')
+  updateCookies(@Res({ passthrough: true }) res: Response) {
+    res.cookie('theme123', 'light');
+    return { message: 'Cookie updated succesfully!' };
+  }
+
   @Get('delete')
   deleteCookies(@Res({ passthrough: true }) res: Response) {
     res.clearCookie('theme123');
