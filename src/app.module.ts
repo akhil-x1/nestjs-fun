@@ -9,9 +9,10 @@ import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { CookiesModule } from './cookies/cookies.module';
 import { VersioningModule } from './versioning/versioning.module';
+import { SessionModule } from './session/session.module';
 
 @Module({
-  imports: [CatModule, BirdModule, AuthModule, UsersModule, CookiesModule, VersioningModule],
+  imports: [CatModule, BirdModule, AuthModule, UsersModule, CookiesModule, VersioningModule, SessionModule],
   controllers: [AppController],
   providers: [AppService],
 })
